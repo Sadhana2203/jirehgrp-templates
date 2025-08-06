@@ -3,13 +3,18 @@ jirehgrp-templates/
 │
 ├── templates/           # Framework starter templates
 │   ├── nextjs/          # Custom Next.js template (TS)
-│   ├── react/           # React (Classic, JS)
 │   ├── react-vite/      # React + Vite (JS or TS)
-│   ├── vue3/            # Vue 3 (JS)
-│   ├── vue3-vite/       # Vue 3 + Vite (JS or TS)
-│   ├── sveltekit/       # SvelteKit (TS)
-│   ├── vanilla-js/      # HTML + JS template
-│   └── vanilla-ts/      # HTML + TypeScript template
+│   │   ├── js/          # React + Vite (JS)
+│   │   └── ts/          # React + Vite (TS)
+│   ├── sveltekit-vite/  # SvelteKit (TS)
+│   │   ├── js/          # React + Vite (JS)
+│   │   └── ts/          # React + Vite (TS)
+│   ├── vanilla/         # HTML + (JS or TS)
+│   │   ├── js/          # HTML + (JS)
+│   │   └── ts/          # HTML + (TS)
+│   └── vue3-vite/       # Vue 3 + Vite (JS or TS)
+│       ├── js/          # Vue 3 + vite (JS)
+│       └── ts/          # Vue 3 + vite (TS)
 │
 ├── .gitignore
 ├── LICENSE
