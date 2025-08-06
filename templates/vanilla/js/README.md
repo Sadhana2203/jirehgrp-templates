@@ -56,12 +56,12 @@ python3 -m http.server
 
 ## Features
 
-* 🌓 **Theme toggle** (light/dark mode)
-* 🌐 **Language toggle** (Amharic 🇪🇹 and English 🇺🇸)
-* 🧮 **Counter button** with DOM updates
-* 🖋️ **Entoto font** for Amharic display
-* 🧩 Modular file structure
-* 🔧 Easy to extend — great base for personal micro-frameworks
+* **Theme toggle** (light/dark mode)
+* **Language toggle** (Amharic 🇪🇹 and English 🇺🇸)
+* **Counter button** with DOM updates
+* **Entoto font** for Amharic display
+* Modular file structure
+* Easy to extend — great base for personal micro-frameworks
 
 ---
 
