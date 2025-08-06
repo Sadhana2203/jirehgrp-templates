@@ -11,7 +11,7 @@ A clean, modern **Vanilla TypeScript starter** with:
 
 ---
 
-## 📁 File Structure
+## File Structure
 
 ```plaintext
 jirehgrp-ts-vanilla/
