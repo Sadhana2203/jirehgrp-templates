@@ -16,5 +16,5 @@ jirehgrp-templates/
 ├── README.md            # Describe CLI usage, flags, frameworks
 ├── package.json         # "bin": { "create-jireh": "./cli/index.ts" }
 ├── tsconfig.json        # Support for TS in CLI
-└── structure.md         # Internal dev documentation (optional)
+└── structure.md         # Internal dev documentation
 ```
