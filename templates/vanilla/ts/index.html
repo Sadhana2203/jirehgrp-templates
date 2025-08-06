@@ -1,0 +1,66 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="assets/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jireh Vanilla Starter</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module">
+      import { createIcons, icons } from "https://esm.sh/lucide@latest";
+      createIcons({ icons });
+    </script>
+  </head>
+  <body>
+    <div class="header">
+      <div class="toggles">
+        <button id="theme-toggle" aria-label="Toggle Theme" class="icon-btn">
+          <i data-lucide="sun-moon"></i>
+        </button>
+
+        <div class="dropdown" id="language-dropdown">
+          <button
+            id="language-toggle-btn"
+            aria-label="Toggle Language"
+            class="icon-btn"
+          >
+            <i data-lucide="languages"></i>
+          </button>
+          <div class="dropdown-menu hidden" id="language-menu">
+            <div class="dropdown-item" data-lang="en">🇺🇸 English</div>
+            <div class="dropdown-item" data-lang="am">🇪🇹 አማርኛ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+      NOTE: All translatable text must be defined using the `data-i18n` attribute.
+      The actual text content should be added in the corresponding translation files:
+        - translations/am.js
+        - translations/en.js
+      Do not hardcode visible text inside elements that have `data-i18n`.
+    -->
+
+    <div id="app">
+      <h1 data-i18n="greeting"></h1>
+      <button id="count-btn">Count: 0</button>
+
+      <div class="info">
+        <h2 data-i18n="heading"></h2>
+        <p data-i18n="description"></p>
+        <ul>
+          <li data-i18n="feature_theme"></li>
+          <li data-i18n="feature_lang"></li>
+          <li data-i18n="feature_font"></li>
+        </ul>
+      </div>
+    </div>
+
+    <script type="module" src="./dist/script.js"></script>
+    <script type="module" src="./dist/scripts/lang.js"></script>
+    <script type="module" src="./dist/scripts/theme.js"></script>
+  </body>
+</html>

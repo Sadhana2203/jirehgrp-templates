@@ -1,4 +1,4 @@
-// @/hooks/useTranslation.js
+// src/hooks/useTranslation.js
 
 import { useLanguage } from "@/components/context/LanguageContext";
 import { translations } from "@/translations";

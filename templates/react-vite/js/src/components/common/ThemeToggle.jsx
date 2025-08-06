@@ -1,9 +1,9 @@
 // src/components/common/ThemeToggle.jsx
 
 import { Moon, Sun } from "lucide-react";
-import { useThemeContext } from "@/components/context/ThemeContext"; // Assuming ThemeContext is now ThemeContext.js
+import { useThemeContext } from "@/components/context/ThemeContext";
 
-export function ThemeToggle({ variant = "default" }) { // Removed type annotation for props
+export function ThemeToggle({ variant = "default" }) {
   const { isDark, toggleTheme } = useThemeContext();
 
   return (

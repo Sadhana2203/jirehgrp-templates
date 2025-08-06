@@ -1,0 +1,20 @@
+/* style.css */
+
+body {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 2rem;
+  background: #f9fafb;
+}
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+}
+button:hover {
+  background: #1e40af;
+}

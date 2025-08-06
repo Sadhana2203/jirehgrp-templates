@@ -1,4 +1,5 @@
 /* src/index.css */
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -116,17 +117,36 @@
     @apply border-border outline-ring/50;
   }
   body {
-    /* These apply the CSS variables from :root or .dark */
     @apply bg-background text-foreground; 
   }
 }
 
-/*
-  For .my-component, instead of hardcoding colors, you would apply Tailwind classes
-  that use your theme variables directly in your React component's JSX.
-  For example: <div className="my-component bg-card text-card-foreground">...</div>
-  If you truly need to define it in CSS, you can do it like this:
-*/
 .my-component {
   @apply bg-card text-card-foreground;
+}
+
+@font-face {
+  font-family: 'Entoto';
+  src: url('/fonts/entoto.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root {
+  --font-amharic: 'Entoto', sans-serif;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+:lang(am) {
+  font-family: var(--font-amharic);
+}
+
+.amharic {
+  font-family: var(--font-amharic);
+}
+
+[data-geez-text] {
+  font-family: 'Entoto', sans-serif !important;
 }
