@@ -1,70 +1,89 @@
-# Jireh Vanilla (JS)
+# Jireh Vanilla (JavaScript)
 
 A clean, modern **Vanilla JavaScript starter** with:
 
-- Plain HTML, CSS, and JS (no frameworks)
-- Light/Dark **theme toggle**
-- **Language toggle** (English & Amharic)
-- No build tools or bundlers
-- Custom Entoto font for Ge'ez script
-- Ideal for learning, prototyping, or building your own micro-framework
+* Plain HTML, CSS, and JS — no frameworks or bundlers
+* Light/Dark **theme toggle**
+* **Language toggle** (English 🇺🇸 & Amharic 🇪🇹)
+* Custom Entoto font for Ge'ez script
+* Perfect for learning, prototyping, or building a micro-framework
+* Fully supported by the [`create-jireh`](https://github.com/jirehgrp-org/create-jireh) CLI
 
 ---
 
-## File Structure
-
-```plaintext
-jirehgrp-js-vanilla/
-│
-├── assets/
-│   ├── fonts/
-│   │   └── entoto.ttf          # Entoto font for Amharic
-│   └── favicon.ico             # App favicon
-│
-├── scripts/
-│   ├── lang.js                 # Language switch logic
-│   └── theme.js                # Theme toggle logic
-│
-├── translations/              # Translations folder
-│   ├── am.js                  # Amharic texts
-│   ├── en.js                  # English texts
-│   └── index.js               # Combined translation export
-│
-├── index.html                 # Main HTML file
-├── script.js                  # App logic (e.g. counter)
-├── style.css                  # Custom styles
-└── README.md                  # This file
-```
-
----
-
-## Getting Started
-
-Open `index.html` directly in your browser, or run a local server:
+## Quick Start (via CLI)
 
 ```bash
-# Using live-server (VSCode extension or globally installed)
-live-server
+npx create-jireh
+```
 
-# Or with Python
+Select:
+
+```
+Framework: Vanilla
+Language:  JavaScript
+```
+
+Then simply open `index.html` in your browser, or serve locally.
+
+---
+
+## Manual Setup
+
+```bash
+# Open directly
+index.html
+
+# OR run a local server
+live-server
+# or
 python3 -m http.server
 ```
 
-> No build step. No NPM. Just open and go.
+> No npm, no build step — just open and go.
 
 ---
 
-## Features
+## Folder Structure
 
-* **Theme toggle** (light/dark mode)
-* **Language toggle** (Amharic 🇪🇹 and English 🇺🇸)
-* **Counter button** with DOM updates
-* **Entoto font** for Amharic display
-* Modular file structure
-* Easy to extend — great base for personal micro-frameworks
+```
+templates/vanilla/js/
+├── assets/
+│   ├── fonts/           # Entoto font for Amharic
+│   └── favicon.ico
+├── scripts/
+│   ├── lang.js          # Language switch logic
+│   └── theme.js         # Theme toggle logic
+├── translations/        # am.js, en.js, index.js
+├── index.html
+├── script.js            # App logic (e.g., counter)
+├── style.css
+└── README.md
+```
 
 ---
 
-## License
+## Multilingual Support
 
-MIT – © 2025 [Jireh Group](https://jirehgrp.com)
+* `lang.js` + `/translations` folder for am/en
+* Language preference saved in `localStorage`
+* Updates text dynamically based on selected language
+
+---
+
+## Theme Toggle
+
+* `theme.js` handles light/dark mode switching
+* Saves preference to `localStorage`
+* Applies via `data-theme` on `<html>`
+
+---
+
+## Template Map
+
+**CLI Key:** `vanilla-js`
+**Registry Path:** `jirehgrp-org/jirehgrp-templates/templates/vanilla/js`
+
+---
+
+**Made with ❤️ by the [JirehGroup](https://jirehgrp.com) Team**
