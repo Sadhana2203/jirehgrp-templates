@@ -52,6 +52,7 @@ jirehgrp-templates/
 │   └── vue3-vite/
 │       ├── js/             # Vue 3 + Vite (JS)
 │       └── ts/             # Vue 3 + Vite (TS)
+...
 ```
 
 Each folder contains a `README.md` file with usage instructions and details.
@@ -93,12 +94,12 @@ Every template (except base Vue/Svelte) includes light/dark mode toggle:
 
 ## Theme & Language Toggle Comparison
 
-| Framework        | Language Context                          | Theme Context                          | Toggle UI Component                    | Persistence Method                             |
-|------------------|-------------------------------------------|----------------------------------------|----------------------------------------|------------------------------------------------|
-| **Next.js**      | `components/context/LanguageContext.tsx`  | `components/context/ThemeContext.tsx`  | `components/common/LanguageToggle.tsx` | `localStorage`, `document.documentElement.lang`, `data-theme` |
-| **React + Vite** | `components/context/LanguageContext.ts[x]`| `components/context/ThemeContext.ts[x]`| `components/common/LanguageToggle.ts[x]`| Same as above                                 |
-| **Vanilla**      | `scripts/lang.ts` + `translations/`       | `scripts/theme.ts`                     | DOM buttons with `id="theme-toggle"`   | `localStorage`, `document.documentElement.lang`, `data-theme` |
-| **Vue / Svelte** | 🛠️ Under Construction                    | 🛠️ Under Construction                | 🛠️ Under Construction                | 🛠️ Under Construction                        |
+| Framework        | Language Context & Hook                             | Theme Context                          | Toggle UI Component                    | Persistence Method                                      |
+|------------------|-----------------------------------------------------|----------------------------------------|----------------------------------------|---------------------------------------------------------|
+| **Next.js**      | `LanguageContext.tsx` + `useTranslation.ts`         | `ThemeContext.tsx`                     | `LanguageToggle.tsx`, `ThemeToggle.tsx`| `localStorage`, `document.documentElement.lang`, `data-theme` |
+| **React + Vite** | `LanguageContext.ts[x]` + `useTranslation.ts[x]`    | `ThemeContext.ts[x]`                   | `LanguageToggle.ts[x]`, `ThemeToggle.ts[x]`| Same as above                                      |
+| **Vanilla**      | `scripts/lang.ts` + `translations/`                 | `scripts/theme.ts`                     | DOM buttons with `id="theme-toggle"`   | `localStorage`, `document.documentElement.lang`, `data-theme` |
+| **Vue / Svelte** | 🛠️ Under Construction                                | 🛠️ Under Construction                  | 🛠️ Under Construction                  | 🛠️ Under Construction                                     |
 
 ---
 
