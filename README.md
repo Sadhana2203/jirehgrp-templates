@@ -142,4 +142,4 @@ Licensed under MIT © 2025 [JirehGroup](https://jirehgrp.com)
 
 ---
 
-**Made with ❤️ by the JirehGroup Team**
+**Made with ❤️ by the [JirehGroup](https://jirehgrp.com) Team**
