@@ -1,20 +1,20 @@
-# Jireh Vanilla + Vite (TS)
+# Jireh Vanilla (TS)
 
-A clean, fast, and modern **Vanilla TypeScript** starter powered by **Vite**.
+A clean, modern **Vanilla TypeScript starter** with:
 
-- Written in TypeScript (no framework)
-- Vite 7+ for lightning-fast dev/build
-- Live reload (HMR) out of the box
-- Plain HTML + CSS — no build complexity
-- Language toggle (English + Amharic)
-- Theme toggle (Light/Dark)
+- Plain HTML, CSS, and TypeScript (no frameworks)
+- Light/Dark **theme toggle**
+- **Language toggle** (English 🇺🇸 & Amharic 🇪🇹)
+- No bundlers or build tools required
+- Custom Entoto font for Ge'ez script
+- Ideal for learning, prototyping, or building your own micro-framework
 
 ---
 
 ## File Structure
 
 ```plaintext
-jirehgrp-vite-ts-vanilla/
+jirehgrp-ts-vanilla/
 │
 ├── assets/
 │   ├── fonts/
@@ -25,16 +25,15 @@ jirehgrp-vite-ts-vanilla/
 │   ├── lang.ts                 # Language switch logic
 │   └── theme.ts                # Theme toggle logic
 │
-├── translations/              # Translations folder
+├── translations/
 │   ├── am.ts                  # Amharic texts
 │   ├── en.ts                  # English texts
-│   └── index.ts               # Combined export
+│   └── index.ts               # Combined translation export
 │
-├── index.html                 # Main HTML entry point
+├── index.html                 # Main HTML file (uses compiled .js)
 ├── script.ts                  # App logic (e.g. counter)
 ├── style.css                  # Custom styles
-├── vite.config.ts             # Vite config
-├── package.json               # NPM metadata & scripts
+├── tsconfig.json              # TypeScript configuration
 └── README.md                  # This file
 ````
 
@@ -42,44 +41,71 @@ jirehgrp-vite-ts-vanilla/
 
 ## Getting Started
 
-1. Install dependencies:
+1. **Install TypeScript globally (if not already):**
 
 ```bash
-npm install
+npm install -g typescript
 ```
 
-2. Start the development server:
+2. **Compile all `.ts` files to `.js`:**
 
 ```bash
-npm run dev
+tsc
 ```
 
-3. Open in your browser:
+3. **Run locally in a browser:**
 
-```
-http://localhost:5173
+```bash
+# Option 1: Live Server (VSCode extension)
+live-server
+
+# Option 2: Python HTTP server
+python3 -m http.server
 ```
 
-> Don't import compiled `.js` files in `index.html`. Just import `.ts` directly — Vite handles it.
+4. **Ensure HTML uses compiled `.js` files:**
+
+Your `<script>` tags in `index.html` should point to `.js` files in the `dist/` folder (e.g.):
+
+```html
+<script type="module" src="./dist/scripts/lang.js"></script>
+```
 
 ---
 
-## Built With
+## tsconfig.json
 
-* [`vite`](https://vitejs.dev/) – Fast dev server & bundler
-* [`typescript`](https://www.typescriptlang.org/) – Type-safe JS
-* [`lucide`](https://lucide.dev/) – Icon system via ESM import
+```json
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "outDir": "./dist",
+    "rootDir": "./",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [
+    "script.ts",
+    "scripts/**/*.ts",
+    "translations/**/*.ts"
+  ]
+}
+```
 
 ---
 
 ## Features
 
-* Type-safe DOM interaction
-* Theme toggle (dark/light mode)
-* Language toggle (Amharic 🇪🇹 / English 🇺🇸)
-* Click counter demo
-* Amharic Entoto font
-* Clean, modular layout for extending or scaffolding
+* **Theme toggle** (light/dark)
+* **Language toggle** (Amharic 🇪🇹 / English 🇺🇸)
+* **Counter button** demo
+* **Entoto font** for Amharic script
+* **Type-safe DOM access**
+* Great starting point for custom vanilla JS/TS frameworks
 
 ---
 
