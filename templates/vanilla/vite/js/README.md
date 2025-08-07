@@ -1,85 +1,84 @@
-# Jireh Vanilla + Vite (JS)
+# Jireh Vanilla + Vite (JavaScript)
 
 A clean, modern **Vanilla JavaScript starter** powered by [Vite](https://vitejs.dev):
 
-- Vite 5+ for lightning-fast dev/build
-- Plain HTML, CSS, and JS (no frameworks)
-- Theme toggle (light/dark)
-- Language toggle (Amharic 🇪🇹 and English 🇺🇸)
-- Live reloading and ES module support
-- Entoto font for Ge'ez script (Amharic)
+* Vite 5+ for lightning-fast dev/build
+* Plain HTML, CSS, and JS — no frameworks
+* Light/Dark **theme toggle**
+* **Language toggle** (English 🇺🇸 & Amharic 🇪🇹)
+* Entoto font for Ge'ez script
+* Fully supported by the [`create-jireh`](https://github.com/jirehgrp-org/create-jireh) CLI
 
 ---
 
-## File Structure
+## Quick Start (via CLI)
 
-```plaintext
-jirehgrp-vite-js-vanilla/
-│
-├── assets/
-│   ├── fonts/
-│   │   └── entoto.ttf          # Entoto font for Amharic
-│   └── favicon.ico             # App favicon
-│
-├── scripts/
-│   ├── lang.js                 # Language switch logic
-│   └── theme.js                # Theme toggle logic
-│
-├── translations/              # Translations folder
-│   ├── am.js                  # Amharic texts
-│   ├── en.js                  # English texts
-│   └── index.js               # Combined translation export
-│
-├── index.html                 # Main HTML file
-├── script.js                  # App logic (e.g. counter)
-├── style.css                  # Custom styles
-├── vite.config.js             # Vite config
-├── package.json               # NPM metadata & scripts
-└── README.md                  # This file
+```bash
+npx create-jireh
+```
+
+Select:
+
+```
+Framework: Vanilla + Vite
+Language:  JavaScript
 ```
 
 ---
 
-## Getting Started
-
-1. **Install dependencies**:
+## Manual Setup
 
 ```bash
 npm install
-```
-
-2. **Run the local dev server**:
-
-```bash
 npm run dev
 ```
 
-3. **Open in browser**:
+Visit **[http://localhost:5173](http://localhost:5173)** in your browser.
+
+---
+
+## Folder Structure
 
 ```
-http://localhost:5173
+templates/vanilla-vite/js/
+├── assets/
+│   ├── fonts/         # Entoto font
+│   └── favicon.ico
+├── scripts/
+│   ├── lang.js        # Language switch logic
+│   └── theme.js       # Theme toggle logic
+├── translations/      # am.js, en.js, index.js
+├── index.html
+├── script.js
+├── style.css
+├── vite.config.js
+├── package.json
+└── README.md
 ```
 
 ---
 
-## Dependencies
+## Multilingual Support
 
-- [`vite`](https://vitejs.dev) – Dev-only, no runtime dependencies
-
----
-
-## Features
-
-- Theme toggle with `data-theme` and localStorage
-- Language toggle (Amharic + English)
-- Button click counter using `document.getElementById`
-- Custom Entoto font (for Amharic/Ge'ez display)
-- Live reloading & ESM support (via Vite)
-- Modular and extensible structure
-- Perfect base for learning or building micro-frameworks
+* Language files in `/translations`
+* Managed by `lang.js`
+* Saves preference to `localStorage`
 
 ---
 
-## License
+## Theme Toggle
 
-MIT – © 2025 [Jireh Group](https://jirehgrp.com)
+* `theme.js` handles dark/light switching
+* Saved in `localStorage`
+* Applied via `data-theme` on `<html>`
+
+---
+
+## Template Map
+
+**CLI Key:** `vanilla-vite-js`
+**Registry Path:** `jirehgrp-org/jirehgrp-templates/templates/vanilla-vite/js`
+
+---
+
+**Made with ❤️ by the [JirehGroup](https://jirehgrp.com) Team**

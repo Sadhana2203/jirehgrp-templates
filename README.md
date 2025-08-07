@@ -65,6 +65,25 @@ Each folder contains a `README.md` file with usage instructions and details.
 
 ---
 
+## Templates
+
+```
+templates/
+    nextjs/
+    react-vite/js/
+    react-vite/ts/
+    sveltekit-vite/js/ <!-- under-construction -->
+    sveltekit-vite/ts/ <!-- under-construction -->
+    vanilla/js/
+    vanilla/ts/
+    vanilla/vite/js/
+    vanilla/vite/ts/
+    vue-vite/js/ <!-- under-construction -->
+    vue-vite/ts/ <!-- under-construction -->
+```
+
+---
+
 ## Quick Usage
 
 To use these templates with `create-jireh` CLI:
@@ -123,4 +142,4 @@ Licensed under MIT © 2025 [JirehGroup](https://jirehgrp.com)
 
 ---
 
-**Made with ❤️ by the JirehGroup Team**
+**Made with ❤️ by the [JirehGroup](https://jirehgrp.com) Team**

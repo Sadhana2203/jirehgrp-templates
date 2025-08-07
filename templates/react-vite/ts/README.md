@@ -1,122 +1,108 @@
 # React + Vite (TypeScript)
 
-A full-featured React + Vite + TypeScript starter template with:
+A full-featured [React](https://react.dev/) + [Vite](https://vitejs.dev/) + TypeScript starter template with:
 
-- Fast Vite setup
-- Light/Dark theme toggle
-- Multilingual support (Amharic 🇪🇹 & English 🇺🇸)
-- ShadCN UI + Tailwind
-- Type-safe contexts and hooks
-
----
-
-## Table of Contents
-
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Multilingual Support](#multilingual-support)
-- [Theme Toggle](#theme-toggle)
-- [TypeScript & ESLint](#typescript--eslint)
-- [Credits & Inspirations](#credits--inspirations)
+* Fast Vite setup
+* Light/Dark theme toggle
+* Multilingual support (Amharic 🇪🇹 & English 🇺🇸)
+* ShadCN UI + Tailwind CSS
+* Type-safe contexts and hooks
+* Fully integrated with [`create-jireh`](https://github.com/jirehgrp-org/create-jireh) CLI
 
 ---
 
-## Features
+## Quick Start (via CLI)
 
-- React + Vite  
-- TypeScript  
-- Tailwind CSS  
-- ShadCN UI  
-- Language Toggle (am/en)  
-- Theme Toggle (light/dark)  
-- ESLint + tsconfig setup  
-- Modular, clean folder structure
-
----
-
-## Project Structure
-
-```plaintext
-react-vite-ts-template/
-├── public/
-│   ├── fonts/
-│   └── favicon.ico
-├── src/
-│   ├── assets/                      # Static assets
-│   ├── components/
-│   │   ├── common/                  # Header, ThemeToggle, LanguageToggle
-│   │   ├── context/                 # Theme & Language Contexts
-│   │   └── ui/                      # ShadCN UI components
-│   ├── hooks/                       # Custom hooks (calendar, translation)
-│   ├── lib/                         # Utility functions
-│   ├── translations/               # Translations for am/en
-│   ├── App.tsx
-│   ├── main.tsx
-│   ├── App.css, index.css
-│   └── vite-env.d.ts
-├── tsconfig*.json                   # TypeScript configs
-├── eslint.config.mjs               # ESLint config
-├── vite.config.json
-├── index.html
-└── package.json
+```bash
+npx create-jireh
 ```
 
+Select:
+
+```
+Framework: React + Vite
+Language:  TypeScript
+```
+
+Then:
+
+```bash
+cd my-app
+npm run dev
+```
+
+App runs at **[http://localhost:5173](http://localhost:5173)**.
+
 ---
 
-## Getting Started
+## Manual Setup
 
 ```bash
 npm install
 npm run dev
 ```
 
-> Launches at `http://localhost:5173`
+---
+
+## Features
+
+* React 18 + Vite
+* TypeScript with strict mode
+* Tailwind CSS 4 + ShadCN UI
+* Amharic & English translations
+* Theme + Language Context API
+* ESLint + tsconfig ready
+* Custom hooks for translation & Ethiopian calendar
+
+---
+
+## Folder Structure
+
+```
+templates/react-vite/ts/
+├── public/
+├── src/
+│   ├── assets/                      # Static assets
+│   ├── components/
+│   │   ├── common/                  # Header, toggles
+│   │   ├── context/                 # Theme & language contexts
+│   │   └── ui/                      # ShadCN UI components
+│   ├── hooks/                       # Custom hooks
+│   ├── lib/                         # Utilities
+│   ├── translations/                # am.ts, en.ts, index.ts
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── vite-env.d.ts
+├── tsconfig*.json
+├── eslint.config.mjs
+├── vite.config.ts
+└── package.json
+```
 
 ---
 
 ## Multilingual Support
 
-- Translations live in `src/translations/`
-- `LanguageContext` manages current locale
-- Custom `useTranslation()` hook provides localized strings
-- Language is stored in `localStorage` and applied via `document.documentElement.lang`
+* `LanguageContext` + `useTranslation()` hook
+* Translations in `/translations`
+* Language saved in `localStorage`
+* Applied via `document.documentElement.lang`
 
 ---
 
 ## Theme Toggle
 
-- Uses `ThemeContext` for toggling between `light` and `dark`
-- Controlled via `data-theme` attribute on `<html>`
-- Theme preference is saved in `localStorage`
+* `ThemeContext` for light/dark
+* Saved in `localStorage`
+* Applied via `data-theme` on `<html>`
 
 ---
 
-## TypeScript & ESLint
+## Template Map
 
-Project uses strict TS settings + recommended ESLint rules.
-
-ESLint config supports:
-
-- Type-aware linting
-- Optional extensions: `eslint-plugin-react-x`, `eslint-plugin-react-dom`
-
-```bash
-npm run lint
-```
+**CLI Key:** `react-vite-ts`
+**Registry Path:** `jirehgrp-org/jirehgrp-templates/templates/react-vite/ts`
 
 ---
 
-## Credits & Inspirations
-
-Powered by:
-
-- [React](https://react.dev/)
-- [Vite](https://vitejs.dev/)
-- [Tailwind CSS](https://tailwindcss.com)
-- [ShadCN UI](https://ui.shadcn.dev/)
-- [Lucide React](https://lucide.dev)
-
----
-
-**Made with ❤️ by the JirehGroup Team**
+**Made with ❤️ by the [JirehGroup](https://jirehgrp.com) Team**

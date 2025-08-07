@@ -1,117 +1,105 @@
 # React + Vite (JavaScript)
 
-A full-featured React + Vite starter template with:
+A full-featured [React](https://react.dev/) + [Vite](https://vitejs.dev/) starter template with:
 
-- Fast Vite setup
-- Light/Dark theme toggle
-- Multilingual support (Amharic 🇪🇹 & English 🇺🇸)
-- ShadCN UI + Tailwind
-
----
-
-## Table of Contents
-
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Multilingual Support](#multilingual-support)
-- [Theme Toggle](#theme-toggle)
-- [Custom Hooks](#custom-hooks)
-- [Credits & Inspirations](#credits--inspirations)
+* Fast Vite setup
+* Light/Dark theme toggle
+* Multilingual support (Amharic 🇪🇹 & English 🇺🇸)
+* ShadCN UI + Tailwind CSS
+* Ready for [`create-jireh`](https://github.com/jirehgrp-org/create-jireh) CLI
 
 ---
 
-## Features
+## Quick Start (via CLI)
 
-- React + Vite  
-- Tailwind CSS  
-- ShadCN UI  
-- Dark/Light theme toggle  
-- Amharic and English translations  
-- Context API for language and theme  
-- Modular folder structure  
-- Custom hooks for calendar and translation
-
----
-
-## Project Structure
-
-```plaintext
-react-vite-js-template/
-├── public/
-│   ├── fonts/
-│   └── favicon.ico
-├── src/
-│   ├── assets/                  # Static assets (icons, logos)
-│   ├── components/
-│   │   ├── common/              # Header, ThemeToggle, LanguageToggle
-│   │   ├── context/             # Theme and Language Contexts
-│   │   └── ui/                  # ShadCN UI components
-│   ├── hooks/                   # Custom hooks (calendar, translation)
-│   ├── lib/                     # Utility functions
-│   ├── translations/            # `am.js`, `en.js`, `index.js`
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── styles (css files)
-├── vite.config.json             # Vite configuration
-├── package.json
-└── README.md
+```bash
+npx create-jireh
 ```
 
+Select:
+
+```
+Framework: React + Vite
+Language:  JavaScript
+```
+
+Then:
+
+```bash
+cd my-app
+npm run dev
+```
+
+App runs at **[http://localhost:5173](http://localhost:5173)**.
+
 ---
 
-## Getting Started
+## Manual Setup
 
 ```bash
 npm install
 npm run dev
 ```
 
-> This runs the development server at `http://localhost:5173`.
+---
+
+## Features
+
+* React 18 + Vite
+* Tailwind CSS 4 + ShadCN UI
+* Dark/Light theme toggle
+* Amharic & English translations with `LanguageContext`
+* Context API for language + theme
+* Modular, clean folder structure
+* Custom hooks for translation & Ethiopian calendar
+
+---
+
+## Folder Structure
+
+```
+templates/react-vite/js/
+├── public/
+├── src/
+│   ├── assets/                  # Static assets
+│   ├── components/
+│   │   ├── common/              # Header, toggles
+│   │   ├── context/             # Theme & language contexts
+│   │   └── ui/                  # ShadCN UI components
+│   ├── hooks/                   # Custom hooks
+│   ├── lib/                     # Utilities
+│   ├── translations/            # am.js, en.js, index.js
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── styles/                  # CSS files
+├── vite.config.js
+└── package.json
+```
 
 ---
 
 ## Multilingual Support
 
-Language is managed via React Context + custom `useTranslation` hook.
-
-- Translations stored in `/translations/am.js` and `/translations/en.js`
-- Language preference is saved to `localStorage`
-- Accessible via `LanguageContext`
-
-Change language in-app using the toggle UI (`LanguageToggle.jsx`).
+* `LanguageContext` + `useTranslation()` hook
+* Translations in `/translations`
+* Language saved in `localStorage`
+* Applied via `document.documentElement.lang`
 
 ---
 
 ## Theme Toggle
 
-Dark/Light theme toggling is fully integrated:
-
-- Uses `ThemeContext` and `useState`
-- Theme value (`light` or `dark`) is saved in `localStorage`
-- Controlled using `data-theme` attribute on `<html>`
-
-Customize UI colors via Tailwind + ShadCN theme config.
+* `ThemeContext` for light/dark modes
+* Saved in `localStorage`
+* Applied via `data-theme` on `<html>`
 
 ---
 
-## Custom Hooks
+## Template Map
 
-- `useTranslation.js`: Returns localized strings based on selected language
-- `useCalendar.js`: Utility to return Ethiopian and Gregorian dates based on language context
-
----
-
-## Credits & Inspirations
-
-This template is built with:
-
-- [React](https://react.dev/)
-- [Vite](https://vitejs.dev/)
-- [Tailwind CSS](https://tailwindcss.com)
-- [ShadCN UI](https://ui.shadcn.dev/)
-- [Lucide React](https://lucide.dev)
+**CLI Key:** `react-vite-js`
+**Registry Path:** `jirehgrp-org/jirehgrp-templates/templates/react-vite/js`
 
 ---
 
-**Made with ❤️ by the JirehGroup Team**
+**Made with ❤️ by the [JirehGroup](https://jirehgrp.com) Team**

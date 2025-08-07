@@ -1,71 +1,47 @@
-# Jireh Vanilla (TS)
+# Jireh Vanilla (TypeScript)
 
 A clean, modern **Vanilla TypeScript starter** with:
 
-- Plain HTML, CSS, and TypeScript (no frameworks)
-- Light/Dark **theme toggle**
-- **Language toggle** (English 🇺🇸 & Amharic 🇪🇹)
-- No bundlers or build tools required
-- Custom Entoto font for Ge'ez script
-- Ideal for learning, prototyping, or building your own micro-framework
+* Plain HTML, CSS, and TypeScript — no frameworks
+* Light/Dark **theme toggle**
+* **Language toggle** (English 🇺🇸 & Amharic 🇪🇹)
+* Entoto font for Ge'ez script
+* Fully supported by the [`create-jireh`](https://github.com/jirehgrp-org/create-jireh) CLI
 
 ---
 
-## File Structure
-
-```plaintext
-jirehgrp-ts-vanilla/
-│
-├── assets/
-│   ├── fonts/
-│   │   └── entoto.ttf          # Entoto font for Amharic
-│   └── favicon.ico             # App favicon
-│
-├── scripts/
-│   ├── lang.ts                 # Language switch logic
-│   └── theme.ts                # Theme toggle logic
-│
-├── translations/
-│   ├── am.ts                  # Amharic texts
-│   ├── en.ts                  # English texts
-│   └── index.ts               # Combined translation export
-│
-├── index.html                 # Main HTML file (uses compiled .js)
-├── script.ts                  # App logic (e.g. counter)
-├── style.css                  # Custom styles
-├── tsconfig.json              # TypeScript configuration
-└── README.md                  # This file
-````
-
----
-
-## Getting Started
-
-1. **Install TypeScript globally (if not already):**
+## Quick Start (via CLI)
 
 ```bash
-npm install -g typescript
+npx create-jireh
 ```
 
-2. **Compile all `.ts` files to `.js`:**
+Select:
+
+```
+Framework: Vanilla
+Language:  TypeScript
+```
+
+---
+
+## Manual Setup
+
+1. Compile TypeScript:
 
 ```bash
 tsc
 ```
 
-3. **Run locally in a browser:**
+2. Serve locally:
 
 ```bash
-# Option 1: Live Server (VSCode extension)
 live-server
-
-# Option 2: Python HTTP server
+# or
 python3 -m http.server
 ```
 
-4. **Ensure HTML uses compiled `.js` files:**
-
-Your `<script>` tags in `index.html` should point to `.js` files in the `dist/` folder (e.g.):
+3. Ensure HTML loads compiled `.js`:
 
 ```html
 <script type="module" src="./dist/scripts/lang.js"></script>
@@ -73,42 +49,47 @@ Your `<script>` tags in `index.html` should point to `.js` files in the `dist/` 
 
 ---
 
-## tsconfig.json
+## Folder Structure
 
-```json
-{
-  "compilerOptions": {
-    "target": "ES6",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "outDir": "./dist",
-    "rootDir": "./",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  },
-  "include": [
-    "script.ts",
-    "scripts/**/*.ts",
-    "translations/**/*.ts"
-  ]
-}
+```
+templates/vanilla/ts/
+├── assets/
+│   ├── fonts/         # Entoto font
+│   └── favicon.ico
+├── scripts/
+│   ├── lang.ts        # Language switch logic
+│   └── theme.ts       # Theme toggle logic
+├── translations/      # am.ts, en.ts, index.ts
+├── index.html
+├── script.ts
+├── style.css
+├── tsconfig.json
+└── README.md
 ```
 
 ---
 
-## Features
+## Multilingual Support
 
-* **Theme toggle** (light/dark)
-* **Language toggle** (Amharic 🇪🇹 / English 🇺🇸)
-* **Counter button** demo
-* **Entoto font** for Amharic script
-* **Type-safe DOM access**
-* Great starting point for custom vanilla JS/TS frameworks
+* `lang.ts` + `/translations`
+* Language preference stored in `localStorage`
+* DOM updated dynamically
 
 ---
 
-## License
+## 🌓 Theme Toggle
 
-MIT – © 2025 [Jireh Group](https://jirehgrp.com)
+* `theme.ts` handles theme switching
+* Preference stored in `localStorage`
+* Applied via `data-theme` on `<html>`
+
+---
+
+## 🏷 Template Map
+
+**CLI Key:** `vanilla-ts`
+**Registry Path:** `jirehgrp-org/jirehgrp-templates/templates/vanilla/ts`
+
+---
+
+**Made with ❤️ by the [JirehGroup](https://jirehgrp.com) Team**
