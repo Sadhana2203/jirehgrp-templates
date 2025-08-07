@@ -1,4 +1,4 @@
-// @/components/common/ThemeToggle.tsx
+// src/components/common/ThemeToggle.tsx
 
 import { Moon, Sun } from "lucide-react";
 import { useThemeContext } from "@/components/context/ThemeContext";

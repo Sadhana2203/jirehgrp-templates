@@ -6,7 +6,8 @@ react-vite-ts-template/
 │
 ├── src/
 │   ├── assets/
-│   │   └── react.svg
+│   │   ├── react.svg
+│   │   └── vite.svg
 │   │
 │   ├── components/
 │   │   ├── common/

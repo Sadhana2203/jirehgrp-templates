@@ -1,4 +1,4 @@
-// @/hooks/useCalendar.ts
+// src/hooks/useCalendar.ts
 
 import { useLanguage } from "@/components/context/LanguageContext";
 

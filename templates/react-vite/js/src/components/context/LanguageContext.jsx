@@ -1,26 +1,37 @@
 // src/components/common/LanguageContext.js
 
-import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
 
-const LanguageContext = createContext(undefined); // Removed type annotation for createContext
+const LanguageContext = createContext(undefined);
 
-export function LanguageProvider({ children }) { // Removed type annotation for children prop
+export function LanguageProvider({ children }) {
+  // Use a function to initialize the state to avoid re-running logic on every render.
+  // This also ensures the initial document.documentElement.lang is set correctly.
   const [language, setLanguage] = useState(() => {
     const savedLanguage = localStorage.getItem("jireh-language");
     const resolvedLanguage =
-      savedLanguage === "en" || savedLanguage === "am" ? savedLanguage : "en"; // Removed 'as Language' cast
-    
+      savedLanguage === "en" || savedLanguage === "am" ? savedLanguage : "en";
+    // Set the initial lang attribute on the document root
+
     document.documentElement.lang = resolvedLanguage;
-    
     return resolvedLanguage;
   });
 
+  // This effect handles changes to the language state.
+  // It's not for initial setup, which is handled by useState's initializer.
   useEffect(() => {
     localStorage.setItem("jireh-language", language);
     document.documentElement.lang = language;
   }, [language]);
-  
-  const updateLanguage = useCallback((newLanguage) => { // Removed type annotation for newLanguage
+
+  // Memoize the update function for performance
+  const updateLanguage = useCallback((newLanguage) => {
     setLanguage(newLanguage);
   }, []);
 
@@ -31,6 +42,7 @@ export function LanguageProvider({ children }) { // Removed type annotation for 
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
   if (!context) {

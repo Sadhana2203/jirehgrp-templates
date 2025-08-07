@@ -1,4 +1,4 @@
-// @/translations/en.ts
+// src/translations/en.ts
 
 export const am = {
   vite_react: 'ቫይት + ሪአክት',

@@ -6,8 +6,8 @@ export const useCalendar = () => {
   const { language } = useLanguage();
 
   const toEthiopian = (
-    gregorianDate, // Removed type annotation ': Date'
-    options // Removed type annotation '?: { includeTime?: boolean }'
+    gregorianDate,
+    options
   ) => {
     const etTime = new Date(gregorianDate.getTime() - 6 * 60 * 60 * 1000);
 
@@ -68,10 +68,10 @@ export const useCalendar = () => {
       "ጷግሜ",
     ];
 
-    const isLeapYear = (year) => // Removed type annotation ': number'
+    const isLeapYear = (year) =>
       (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 
-    const gregorianToJDN = (year, month, day) => { // Removed type annotations
+    const gregorianToJDN = (year, month, day) => {
       const a = Math.floor((14 - month) / 12);
       year = year + 4800 - a;
       month = month + 12 * a - 3;
@@ -86,7 +86,7 @@ export const useCalendar = () => {
       );
     };
 
-    const JDNToEthiopian = (jdn) => { // Removed type annotation
+    const JDNToEthiopian = (jdn) => {
       const r = (jdn - 1723856) % 1461;
       const n = (r % 365) + 365 * Math.floor(r / 1460);
 

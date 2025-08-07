@@ -1,3 +1,5 @@
+/* src/index.css */
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -117,4 +119,30 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@font-face {
+  font-family: 'Entoto';
+  src: url('/fonts/entoto.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root {
+  --font-amharic: 'Entoto', sans-serif;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+:lang(am) {
+  font-family: var(--font-amharic);
+}
+
+.amharic {
+  font-family: var(--font-amharic);
+}
+
+[data-geez-text] {
+  font-family: 'Entoto', sans-serif !important;
 }

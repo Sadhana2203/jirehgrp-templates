@@ -1,4 +1,4 @@
-// @/components/common/Header.tsx
+// src/components/common/Header.tsx
 
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageToggle } from "./LanguageToggle";

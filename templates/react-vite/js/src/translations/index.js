@@ -1,4 +1,4 @@
-// @/translations/index.ts
+// src/translations/index.js
 
 import { am } from "./am";
 import { en } from "./en";

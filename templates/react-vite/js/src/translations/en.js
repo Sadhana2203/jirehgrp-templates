@@ -1,4 +1,4 @@
-// @/translations/am.ts
+// src/translations/am.js
 
 export const en = {
   vite_react: 'Vite + React',

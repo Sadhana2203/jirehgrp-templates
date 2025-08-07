@@ -1,4 +1,4 @@
-// @/components/common/LanguageToggle.tsx
+// src/components/common/LanguageToggle.tsx
 
 import { Languages } from "lucide-react";
 import {

@@ -1,4 +1,4 @@
-// @/hooks/useTranslation.ts
+// src/hooks/useTranslation.ts
 
 import { useLanguage } from "@/components/context/LanguageContext";
 import { translations } from "@/translations";
