@@ -103,4 +103,4 @@ Your `index.html` should reference the compiled `.js` files (not `.ts`):
 
 ## License
 
-MIT – © 2025 Jireh Group
+MIT – © 2025 [Jireh Group](https://jirehgrp.com)

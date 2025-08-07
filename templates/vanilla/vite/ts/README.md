@@ -12,16 +12,28 @@ Minimal starter template using:
 ## File Structure
 
 ```plaintext
-jirehgrp-vite-ts-vanilla/
+jirehgrp-vite-js-vanilla/
 │
-├── index.html         # App entry point
-├── script.ts          # TypeScript logic (compiled by Vite)
-├── style.css          # Global styles
-├── vite.config.ts     # Vite configuration (TS-compatible)
-├── tsconfig.json      # TypeScript config
-├── package.json       # Scripts & dev dependencies
-├── README.md          # This file
-└── STRUCTURE.md       # Optional internal notes
+├── assets/
+│   ├── fonts/
+│   │   └── entoto.ttf          # Entoto font for Amharic
+│   └── favicon.ico             # App favicon
+│
+├── scripts/
+│   ├── lang.ts                 # Language switch logic
+│   └── theme.ts                # Theme toggle logic
+│
+├── translations/              # Translations folder
+│   ├── am.ts                  # Amharic texts
+│   ├── en.ts                  # English texts
+│   └── index.ts               # Combined translation export
+│
+├── index.html                 # Main HTML file
+├── script.ts                  # App logic (e.g. counter)
+├── style.css                  # Custom styles
+├── vite.config.ts             # Vite config
+├── package.json               # NPM metadata & scripts
+└── README.md                  # This file
 ```
 
 ---

@@ -67,4 +67,4 @@ python3 -m http.server
 
 ## License
 
-MIT – © 2025 Jireh Group
+MIT – © 2025 [Jireh Group](https://jirehgrp.com)

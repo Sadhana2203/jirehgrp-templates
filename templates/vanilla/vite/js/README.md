@@ -1,11 +1,13 @@
 # Jireh Vanilla + Vite (JS)
 
-Minimal starter template using:
+A clean, modern **Vanilla JavaScript starter** powered by [Vite](https://vitejs.dev):
 
-- Vanilla JavaScript (no framework)
 - Vite 5+ for lightning-fast dev/build
-- Plain HTML + CSS
-- Live reloading and module support
+- Plain HTML, CSS, and JS (no frameworks)
+- Theme toggle (light/dark)
+- Language toggle (Amharic 🇪🇹 and English 🇺🇸)
+- Live reloading and ES module support
+- Entoto font for Ge'ez script (Amharic)
 
 ---
 
@@ -14,31 +16,45 @@ Minimal starter template using:
 ```plaintext
 jirehgrp-vite-js-vanilla/
 │
-├── index.html         # App entry point
-├── package.json       # Project scripts & deps
-├── README.md          # This file
-├── script.js          # Main logic (ES Module)
-├── style.css          # Global styles
-└── vite.config.js     # Vite configuration
+├── assets/
+│   ├── fonts/
+│   │   └── entoto.ttf          # Entoto font for Amharic
+│   └── favicon.ico             # App favicon
+│
+├── scripts/
+│   ├── lang.js                 # Language switch logic
+│   └── theme.js                # Theme toggle logic
+│
+├── translations/              # Translations folder
+│   ├── am.js                  # Amharic texts
+│   ├── en.js                  # English texts
+│   └── index.js               # Combined translation export
+│
+├── index.html                 # Main HTML file
+├── script.js                  # App logic (e.g. counter)
+├── style.css                  # Custom styles
+├── vite.config.js             # Vite config
+├── package.json               # NPM metadata & scripts
+└── README.md                  # This file
 ```
 
 ---
 
 ## Getting Started
 
-Install dependencies:
+1. **Install dependencies**:
 
 ```bash
 npm install
 ```
 
-Run the local dev server:
+2. **Run the local dev server**:
 
 ```bash
 npm run dev
 ```
 
-Then open:
+3. **Open in browser**:
 
 ```
 http://localhost:5173
@@ -48,20 +64,22 @@ http://localhost:5173
 
 ## Dependencies
 
-- `vite` (dev dependency only)
+- [`vite`](https://vitejs.dev) – Dev-only, no runtime dependencies
 
 ---
 
 ## Features
 
-- DOM interaction using `document.getElementById`
-- Button click counter
-- Vite module support and live reload
-- Clean, readable CSS
-- Modular layout, easy to extend
+- Theme toggle with `data-theme` and localStorage
+- Language toggle (Amharic + English)
+- Button click counter using `document.getElementById`
+- Custom Entoto font (for Amharic/Ge'ez display)
+- Live reloading & ESM support (via Vite)
+- Modular and extensible structure
+- Perfect base for learning or building micro-frameworks
 
 ---
 
 ## License
 
-MIT – © 2025 Jireh Group
+MIT – © 2025 [Jireh Group](https://jirehgrp.com)

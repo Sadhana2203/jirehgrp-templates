@@ -1,4 +1,4 @@
-// scripts/script.js
+// script.js
 
 let count = 0;
 
