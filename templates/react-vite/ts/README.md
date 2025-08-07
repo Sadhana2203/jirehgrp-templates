@@ -1,69 +1,122 @@
-# React + TypeScript + Vite
+# React + Vite (TypeScript)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-featured React + Vite + TypeScript starter template with:
 
-Currently, two official plugins are available:
+- Fast Vite setup
+- Light/Dark theme toggle
+- Multilingual support (Amharic 🇪🇹 & English 🇺🇸)
+- ShadCN UI + Tailwind
+- Type-safe contexts and hooks
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Table of Contents
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Multilingual Support](#multilingual-support)
+- [Theme Toggle](#theme-toggle)
+- [TypeScript & ESLint](#typescript--eslint)
+- [Credits & Inspirations](#credits--inspirations)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- React + Vite  
+- TypeScript  
+- Tailwind CSS  
+- ShadCN UI  
+- Language Toggle (am/en)  
+- Theme Toggle (light/dark)  
+- ESLint + tsconfig setup  
+- Modular, clean folder structure
+
+---
+
+## Project Structure
+
+```plaintext
+react-vite-ts-template/
+├── public/
+│   ├── fonts/
+│   └── favicon.ico
+├── src/
+│   ├── assets/                      # Static assets
+│   ├── components/
+│   │   ├── common/                  # Header, ThemeToggle, LanguageToggle
+│   │   ├── context/                 # Theme & Language Contexts
+│   │   └── ui/                      # ShadCN UI components
+│   ├── hooks/                       # Custom hooks (calendar, translation)
+│   ├── lib/                         # Utility functions
+│   ├── translations/               # Translations for am/en
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── App.css, index.css
+│   └── vite-env.d.ts
+├── tsconfig*.json                   # TypeScript configs
+├── eslint.config.mjs               # ESLint config
+├── vite.config.json
+├── index.html
+└── package.json
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Getting Started
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
+
+> Launches at `http://localhost:5173`
+
+---
+
+## Multilingual Support
+
+- Translations live in `src/translations/`
+- `LanguageContext` manages current locale
+- Custom `useTranslation()` hook provides localized strings
+- Language is stored in `localStorage` and applied via `document.documentElement.lang`
+
+---
+
+## Theme Toggle
+
+- Uses `ThemeContext` for toggling between `light` and `dark`
+- Controlled via `data-theme` attribute on `<html>`
+- Theme preference is saved in `localStorage`
+
+---
+
+## TypeScript & ESLint
+
+Project uses strict TS settings + recommended ESLint rules.
+
+ESLint config supports:
+
+- Type-aware linting
+- Optional extensions: `eslint-plugin-react-x`, `eslint-plugin-react-dom`
+
+```bash
+npm run lint
+```
+
+---
+
+## Credits & Inspirations
+
+Powered by:
+
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com)
+- [ShadCN UI](https://ui.shadcn.dev/)
+- [Lucide React](https://lucide.dev)
+
+---
+
+**Made with ❤️ by the JirehGroup Team**

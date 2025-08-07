@@ -1,12 +1,117 @@
-# React + Vite
+# React + Vite (JavaScript)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-featured React + Vite starter template with:
 
-Currently, two official plugins are available:
+- Fast Vite setup
+- Light/Dark theme toggle
+- Multilingual support (Amharic 🇪🇹 & English 🇺🇸)
+- ShadCN UI + Tailwind
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Table of Contents
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Multilingual Support](#multilingual-support)
+- [Theme Toggle](#theme-toggle)
+- [Custom Hooks](#custom-hooks)
+- [Credits & Inspirations](#credits--inspirations)
+
+---
+
+## Features
+
+- React + Vite  
+- Tailwind CSS  
+- ShadCN UI  
+- Dark/Light theme toggle  
+- Amharic and English translations  
+- Context API for language and theme  
+- Modular folder structure  
+- Custom hooks for calendar and translation
+
+---
+
+## Project Structure
+
+```plaintext
+react-vite-js-template/
+├── public/
+│   ├── fonts/
+│   └── favicon.ico
+├── src/
+│   ├── assets/                  # Static assets (icons, logos)
+│   ├── components/
+│   │   ├── common/              # Header, ThemeToggle, LanguageToggle
+│   │   ├── context/             # Theme and Language Contexts
+│   │   └── ui/                  # ShadCN UI components
+│   ├── hooks/                   # Custom hooks (calendar, translation)
+│   ├── lib/                     # Utility functions
+│   ├── translations/            # `am.js`, `en.js`, `index.js`
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── styles (css files)
+├── vite.config.json             # Vite configuration
+├── package.json
+└── README.md
+```
+
+---
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+> This runs the development server at `http://localhost:5173`.
+
+---
+
+## Multilingual Support
+
+Language is managed via React Context + custom `useTranslation` hook.
+
+- Translations stored in `/translations/am.js` and `/translations/en.js`
+- Language preference is saved to `localStorage`
+- Accessible via `LanguageContext`
+
+Change language in-app using the toggle UI (`LanguageToggle.jsx`).
+
+---
+
+## Theme Toggle
+
+Dark/Light theme toggling is fully integrated:
+
+- Uses `ThemeContext` and `useState`
+- Theme value (`light` or `dark`) is saved in `localStorage`
+- Controlled using `data-theme` attribute on `<html>`
+
+Customize UI colors via Tailwind + ShadCN theme config.
+
+---
+
+## Custom Hooks
+
+- `useTranslation.js`: Returns localized strings based on selected language
+- `useCalendar.js`: Utility to return Ethiopian and Gregorian dates based on language context
+
+---
+
+## Credits & Inspirations
+
+This template is built with:
+
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com)
+- [ShadCN UI](https://ui.shadcn.dev/)
+- [Lucide React](https://lucide.dev)
+
+---
+
+**Made with ❤️ by the JirehGroup Team**
