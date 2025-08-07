@@ -10,14 +10,14 @@ This monorepo includes frontend boilerplates designed for rapid project scaffold
 
 ### Available Templates
 
-| Framework      | JavaScript | TypeScript | Multilingual | Theme Toggle |
-| -------------- | ---------- | ---------- | ------------ | ------------ |
-| Next.js        | ✔️         | ✔️        | ✔️ (am/en)   | ✔️          |
-| React + Vite   | ✔️         | ✔️        | ✔️ (am/en)   | ✔️          |
-| Vue 3 + Vite   | ✔️         | ✔️        | ❌           | ✔️          |
-| SvelteKit      | ✔️         | ✔️        | ❌           | ✔️          |
-| Vanilla        | ✔️         | ✔️        | ✔️ (am/en)   | ✔️          |
-| Vanilla + Vite | ✔️         | 🚧        | ✔️ (am/en)   | ✔️          |
+| Framework      | JavaScript | TypeScript | Multilingual | Theme Toggle       |
+| -------------- | ---------- | ---------- | ------------ | ------------------ |
+| Next.js        | ✔️         | ✔️         | ✔️ (am/en)   | ✔️                 |
+| React + Vite   | ✔️         | ✔️         | ✔️ (am/en)   | ✔️                 |
+| Vue 3 + Vite   | ✔️         | ✔️         | 🛠️ Under Construction | ✔️         |
+| SvelteKit      | ✔️         | ✔️         | 🛠️ Under Construction | ✔️         |
+| Vanilla        | ✔️         | ✔️         | ✔️ (am/en)   | ✔️                 |
+| Vanilla + Vite | ✔️         | ✔️         | ✔️ (am/en)   | ✔️                 |
 
 ---
 
@@ -40,6 +40,7 @@ jirehgrp-templates/
 │   └── vue3-vite/
 │       ├── js/             # Vue 3 + Vite (JS)
 │       └── ts/             # Vue 3 + Vite (TS)
+...
 ```
 
 Each folder contains a `README.md` file with usage instructions and details.
@@ -62,7 +63,7 @@ Follow the prompts to select your framework and language variant.
 
 ## Multilingual Support
 
-All Jireh templates aim to support both English 🇺🇸 and Amharic 🇪🇹, starting with Next.js and Vanilla templates.
+All Jireh templates aim to support both Amharic 🇪🇹 and English 🇺🇸, starting with Next.js and Vanilla templates.
 
 * Language toggling is implemented via `localStorage`
 * Simple translation files (`translations/en`, `translations/am`) are included
@@ -89,7 +90,7 @@ Templates inspired by best practices from:
 * [Tailwind CSS](https://tailwindcss.com)
 * [Lucide React](https://lucide.dev)
 
-Licensed under MIT © 2025 [Jireh Group](https://jirehgrp.com)
+Licensed under MIT © 2025 [JirehGroup](https://jirehgrp.com)
 
 ---
 
