@@ -26,7 +26,7 @@ This monorepo includes frontend boilerplates designed for rapid project scaffold
 | -------------- | ---------- | ---------- | ---------------- | ------------------- |
 | Next.js        | ✔️         | ✔️         | ✔️ (am/en)       | ✔️                  |
 | React + Vite   | ✔️         | ✔️         | ✔️ (am/en)       | ✔️                  |
-| Vue 3 + Vite   | ✔️         | ✔️         | 🦄 Under Construction | ✔️              |
+| Vue 3 + Vite   | ✔️         | ✔️         | 🛠️ Under Construction | ✔️              |
 | SvelteKit      | ✔️         | ✔️         | 🛠️ Under Construction | ✔️              |
 | Vanilla        | ✔️         | ✔️         | ✔️ (am/en)       | ✔️                  |
 | Vanilla + Vite | ✔️         | ✔️         | ✔️ (am/en)       | ✔️                  |
@@ -39,20 +39,26 @@ This monorepo includes frontend boilerplates designed for rapid project scaffold
 jirehgrp-templates/
 │
 ├── templates/
-│   ├── nextjs/             # Next.js 15 + Tailwind + App Router + i18n
+│   ├── nextjs/                  # Next.js 15 + Tailwind + App Router + i18n
 │   ├── react-vite/
-│   │   ├── js/             # React + Vite (JS)
-│   │   └── ts/             # React + Vite (TS)
+│   │   ├── js/                  # React + Vite (JavaScript)
+│   │   └── ts/                  # React + Vite (TypeScript)
 │   ├── sveltekit-vite/
-│   │   ├── js/             # SvelteKit (JS)
-│   │   └── ts/             # SvelteKit (TS)
+│   │   ├── js/                  # SvelteKit + Vite (JavaScript)
+│   │   └── ts/                  # SvelteKit + Vite (TypeScript)
 │   ├── vanilla/
-│   │   ├── js/             # Plain HTML/CSS/JS
-│   │   └── ts/             # Plain HTML/CSS/TS
+│   │   ├── js/                  # Vanilla (Plain HTML/CSS/JavaScript)
+│   │   ├── ts/                  # Vanilla (Plain HTML/CSS/TypeScript)
+│   │   └── vite/
+│   │       ├── js/              # Vanilla + Vite (JavaScript)
+│   │       └── ts/              # Vanilla + Vite (TypeScript)
 │   └── vue3-vite/
-│       ├── js/             # Vue 3 + Vite (JS)
-│       └── ts/             # Vue 3 + Vite (TS)
-...
+│       ├── js/                  # Vue 3 + Vite (JavaScript)
+│       └── ts/                  # Vue 3 + Vite (TypeScript)
+│
+├── .gitignore
+├── LICENSE
+└── README.md
 ```
 
 Each folder contains a `README.md` file with usage instructions and details.
