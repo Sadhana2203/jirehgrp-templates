@@ -1,5 +1,4 @@
-# ci.yml
-
+# .github/workflows/ci.yml
 name: Templates CI
 
 on:
@@ -10,6 +9,10 @@ on:
 
 permissions:
   contents: read
+
+concurrency:
+  group: templates-ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -25,25 +28,20 @@ jobs:
           - templates/react-vite/ts
           - templates/vanilla/vite/js
           - templates/vanilla/vite/ts
-          # add when ready:
-          # - templates/sveltekit-vite/js
-          # - templates/sveltekit-vite/ts
-          # - templates/vue3-vite/js
-          # - templates/vue3-vite/ts
 
     defaults:
       run:
+        shell: bash
         working-directory: ${{ matrix.template }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node (no cache)
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
       - name: Install
         run: |
