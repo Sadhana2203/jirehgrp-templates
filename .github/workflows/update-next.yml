@@ -1,4 +1,3 @@
-# .github/workflows/update-next.yml
 name: Update Next.js Version
 
 on:
@@ -22,35 +21,36 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install deps (template)
-        run: npm install
+      - name: Install deps (Next.js template)
         working-directory: templates/nextjs
+        run: npm install
 
-      - name: Upgrade Next.js and related packages
+      - name: Upgrade Next.js (ncu) & reinstall
+        working-directory: templates/nextjs
         run: |
           npx npm-check-updates '/^(next|eslint-config-next)$/' -u
           npm install
-        working-directory: templates/nextjs
 
-      - name: Check for changes
-        id: diff
+      - name: Create changeset, version bump, and push (only if changed)
+        shell: bash
         run: |
+          set -euo pipefail
+
+          # did package.json or lockfile change?
           if git diff --quiet -- templates/nextjs/package.json templates/nextjs/package-lock.json; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "No Next.js updates detected. Skipping changeset + version."
+            exit 0
           fi
 
-      - name: Create changeset (root)
-        if: ${{ steps.diff.outputs.changed == 'true' }}
-        run: npx changeset --empty --summary="chore(nextjs): bump Next.js in templates/nextjs"
+          echo "Changes detected. Creating changeset…"
+          npx changeset --empty --summary="chore(nextjs): bump Next.js in templates/nextjs"
 
-      - name: Version bump & commit (root)
-        if: ${{ steps.diff.outputs.changed == 'true' }}
-        run: |
+          echo "Versioning…"
           npx changeset version
+
+          echo "Committing & pushing…"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --cached --quiet || git commit -m "chore(release): version bump"
+          git commit -m "chore(release): version bump (Next.js auto-update)"
           git push
