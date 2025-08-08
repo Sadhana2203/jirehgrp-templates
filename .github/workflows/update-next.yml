@@ -1,0 +1,47 @@
+# .github/workflows/update-next.yml
+
+name: Update Next.js Version
+
+on:
+  schedule:
+    - cron: "0 3 * * 1"  # Every Monday at 3:00 AM UTC
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: templates/nextjs
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Upgrade Next.js and related packages
+        run: |
+          npx npm-check-updates '/^(next|eslint-config-next)$/' -u
+          npm install
+
+      - name: Create changeset
+        run: |
+          npx changeset --empty --summary="chore: upgrade Next.js version"
+
+      - name: Version bump and changelog
+        run: |
+          npx changeset version
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "chore(release): version bump"
+          git push
