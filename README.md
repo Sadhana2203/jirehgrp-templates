@@ -42,6 +42,11 @@ jirehgrp-templates/
 ├── .github/
 │   └── workflow
 │       └── cl.yml
+│
+├── scripts/
+│   ├── safe-build.mjs
+│   └── safe-typecheck.mjs
+│
 ├── templates/
 │   ├── nextjs/                  # Next.js 15 + Tailwind + App Router + i18n
 │   ├── react-vite/

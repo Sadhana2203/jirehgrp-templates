@@ -1,7 +1,9 @@
 {
   "scripts": {
-    "release": "changeset version && git add . && git commit -m \"chore(release): version bump\" && git push && git push --tags",
-    "audit:ci": "npm audit --omit=dev"
+    "test:templates": "node scripts/test-templates.mjs",
+    "typecheck:safe": "node scripts/safe-typecheck.mjs",
+    "build:safe": "node scripts/safe-build.mjs",
+    "release": "changeset version && git add . && git commit -m \"chore(release): version bump\" && git push && git push --tags"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.5",
