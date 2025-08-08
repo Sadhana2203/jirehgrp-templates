@@ -1,5 +1,4 @@
 # .github/workflows/update-next.yml
-
 name: Update Next.js Version
 
 on:
@@ -17,7 +16,6 @@ jobs:
     defaults:
       run:
         working-directory: templates/nextjs
-        shell: bash
 
     steps:
       - name: Checkout repo
@@ -26,8 +24,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
+          node-version: '20'
+          cache: 'npm'
 
       - name: Install deps
         run: npm install
@@ -38,13 +36,13 @@ jobs:
           npm install
 
       - name: Create changeset
-        run: npx changeset --empty --summary="chore(nextjs): upgrade Next.js in templates/nextjs"
+        run: npx changeset --empty --summary='chore(nextjs) upgrade Next.js in templates/nextjs'
 
       - name: Version bump & commit
         run: |
           npx changeset version
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
-          git diff --cached --quiet || git commit -m "chore(release): version bump"
+          git diff --cached --quiet || git commit -m 'chore(release): version bump'
           git push
