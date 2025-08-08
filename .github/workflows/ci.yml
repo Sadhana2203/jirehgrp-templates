@@ -1,0 +1,70 @@
+name: Templates CI
+
+on:
+  pull_request:
+  push:
+    branches: [main, development]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build ${{ matrix.template }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        template:
+          - templates/nextjs
+          - templates/react-vite/js
+          - templates/react-vite/ts
+          - templates/vanilla/vite/js
+          - templates/vanilla/vite/ts
+          # add when ready:
+          # - templates/sveltekit-vite/js
+          # - templates/sveltekit-vite/ts
+          # - templates/vue3-vite/js
+          # - templates/vue3-vite/ts
+
+    defaults:
+      run:
+        working-directory: ${{ matrix.template }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: ${{ matrix.template }}/package-lock.json
+
+      - name: Install
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Typecheck (TS only)
+        run: |
+          if [ -f tsconfig.json ]; then
+            npx tsc -v >/dev/null 2>&1 || npm i -D typescript
+            npx tsc --noEmit
+          else
+            echo "No tsconfig.json – skipping typecheck"
+          fi
+
+      - name: Build
+        run: |
+          if npm run | grep -q " build"; then
+            npm run build
+          else
+            echo "No build script – skipping build"
+          fi

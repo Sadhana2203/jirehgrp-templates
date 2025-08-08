@@ -40,8 +40,8 @@ jirehgrp-templates/
 │
 ├── .changeset/
 ├── .github/
-│   └── workflows
-│       └── update-next.yml
+│   └── workflow
+│       └── cl.yml
 ├── templates/
 │   ├── nextjs/                  # Next.js 15 + Tailwind + App Router + i18n
 │   ├── react-vite/
