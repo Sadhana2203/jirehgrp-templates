@@ -42,11 +42,11 @@ jobs:
           fi
 
       - name: Create changeset (root)
-        if: "${{ steps.diff.outputs.changed == 'true' }}"
+        if: ${{ steps.diff.outputs.changed == 'true' }}
         run: npx changeset --empty --summary="chore(nextjs): bump Next.js in templates/nextjs"
 
       - name: Version bump & commit (root)
-        if: "${{ steps.diff.outputs.changed == 'true' }}"
+        if: ${{ steps.diff.outputs.changed == 'true' }}
         run: |
           npx changeset version
           git config user.name "github-actions[bot]"
