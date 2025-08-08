@@ -13,10 +13,6 @@ jobs:
   update:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: templates/nextjs
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -24,24 +20,37 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
 
-      - name: Install deps
+      - name: Install deps (template)
         run: npm install
+        working-directory: templates/nextjs
 
       - name: Upgrade Next.js and related packages
         run: |
           npx npm-check-updates '/^(next|eslint-config-next)$/' -u
           npm install
+        working-directory: templates/nextjs
 
-      - name: Create changeset
-        run: npx changeset --empty --summary='chore(nextjs) upgrade Next.js in templates/nextjs'
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet -- templates/nextjs/package.json templates/nextjs/package-lock.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
 
-      - name: Version bump & commit
+      - name: Create changeset (root)
+        if: steps.diff.outputs.changed == 'true'
+        run: npx changeset --empty --summary="chore(nextjs): bump Next.js in templates/nextjs"
+
+      - name: Version bump & commit (root)
+        if: steps.diff.outputs.changed == 'true'
         run: |
           npx changeset version
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --cached --quiet || git commit -m 'chore(release): version bump'
+          git commit -m "chore(release): version bump"
           git push
