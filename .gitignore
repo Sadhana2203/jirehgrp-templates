@@ -78,9 +78,15 @@ web_modules/
 .next
 out
 
+
 # Nuxt.js build / generate output
 .nuxt
 dist
+
+# NPM
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
 # Gatsby files
 .cache/

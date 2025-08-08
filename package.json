@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "release": "changeset version && git add . && git commit -m \"chore(release): version bump\" && git push && git push --tags",
+    "audit:ci": "npm audit --omit=dev"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.5",
+    "npm-check-updates": "^18.0.2"
+  }
+}

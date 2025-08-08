@@ -38,6 +38,9 @@ This monorepo includes frontend boilerplates designed for rapid project scaffold
 ```plaintext
 jirehgrp-templates/
 │
+├── .changeset/
+├── .github/
+│   └── workflow
 ├── templates/
 │   ├── nextjs/                  # Next.js 15 + Tailwind + App Router + i18n
 │   ├── react-vite/
@@ -57,8 +60,11 @@ jirehgrp-templates/
 │       └── ts/                  # Vue 3 + Vite (TypeScript)
 │
 ├── .gitignore
+├── .versionrc
 ├── LICENSE
-└── README.md
+├── package.json
+├── README.md
+└── update-next.yml
 ```
 
 Each folder contains a `README.md` file with usage instructions and details.

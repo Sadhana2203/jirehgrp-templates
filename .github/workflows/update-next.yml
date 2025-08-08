@@ -3,16 +3,15 @@ name: Update Next.js Version
 
 on:
   schedule:
-    - cron: "0 3 * * 1"  # Every Monday at 03:00 UTC
+    - cron: "0 3 * * 1"   # Mondays 03:00 UTC
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   update:
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: templates/nextjs
 
     steps:
       - name: Checkout repo
@@ -22,26 +21,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-          # this path exists only after checkout, so keep this step AFTER checkout
-          cache-dependency-path: templates/nextjs/package-lock.json
+          cache: 'npm'
 
       - name: Install deps
-        run: npm ci
-        # if there is no lockfile yet, fall back to install
-        continue-on-error: true
-
-      - name: Fallback install (no lockfile case)
-        if: failure()
         run: npm install
+        working-directory: templates/nextjs
 
       - name: Upgrade Next.js and related packages
         run: |
           npx npm-check-updates '/^(next|eslint-config-next)$/' -u
           npm install
+        working-directory: templates/nextjs
 
       - name: Create changeset
-        run: npx changeset --empty --summary="chore: upgrade Next.js version"
+        run: npx changeset --empty --summary="chore(nextjs): upgrade Next.js in templates/nextjs"
 
       - name: Version bump & commit
         run: |
