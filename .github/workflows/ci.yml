@@ -3,8 +3,14 @@ name: Templates CI
 
 on:
   pull_request:
+    paths:
+      - "templates/**"
+      - ".github/workflows/ci.yml"
   push:
     branches: [main, development]
+    paths:
+      - "templates/**"
+      - ".github/workflows/ci.yml"
   workflow_dispatch:
 
 permissions:
