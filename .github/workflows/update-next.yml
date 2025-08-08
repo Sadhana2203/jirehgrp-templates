@@ -1,10 +1,9 @@
 # .github/workflows/update-next.yml
-
 name: Update Next.js Version
 
 on:
   schedule:
-    - cron: "0 3 * * 1"  # Every Monday at 3:00 AM UTC
+    - cron: "0 3 * * 1"  # Every Monday at 03:00 UTC
   workflow_dispatch:
 
 jobs:
@@ -24,9 +23,16 @@ jobs:
         with:
           node-version: 20
           cache: npm
+          # this path exists only after checkout, so keep this step AFTER checkout
           cache-dependency-path: templates/nextjs/package-lock.json
 
-      - name: Install dependencies
+      - name: Install deps
+        run: npm ci
+        # if there is no lockfile yet, fall back to install
+        continue-on-error: true
+
+      - name: Fallback install (no lockfile case)
+        if: failure()
         run: npm install
 
       - name: Upgrade Next.js and related packages
@@ -35,14 +41,13 @@ jobs:
           npm install
 
       - name: Create changeset
-        run: |
-          npx changeset --empty --summary="chore: upgrade Next.js version"
+        run: npx changeset --empty --summary="chore: upgrade Next.js version"
 
-      - name: Version bump and changelog
+      - name: Version bump & commit
         run: |
           npx changeset version
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "chore(release): version bump"
+          git add -A
+          git diff --cached --quiet || git commit -m "chore(release): version bump"
           git push
