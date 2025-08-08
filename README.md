@@ -40,7 +40,8 @@ jirehgrp-templates/
 │
 ├── .changeset/
 ├── .github/
-│   └── workflow
+│   └── workflows
+│       └── update-next.yml
 ├── templates/
 │   ├── nextjs/                  # Next.js 15 + Tailwind + App Router + i18n
 │   ├── react-vite/
@@ -63,8 +64,7 @@ jirehgrp-templates/
 ├── .versionrc
 ├── LICENSE
 ├── package.json
-├── README.md
-└── update-next.yml
+└── README.md
 ```
 
 Each folder contains a `README.md` file with usage instructions and details.
